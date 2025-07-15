@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Create Resume {% endblock %}</title>
+</head>
+<body>
+
+    {% block content %}
+
+        <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidebar-menu pt-3">
+          <div
+            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100"
+          >
+            <a
+              href="/"
+              class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none"
+            >
+              <span class="fs-5 d-none d-sm-inline">Resume Builder</span>
+            </a>
+            <ul
+              class="nav nav-pills flex-column align-items-center align-items-sm-start" style="margin-left: -10px;"
+              id="menu"
+            >
+                <ul
+                  class="collapse show nav flex-column"
+                  id="submenu1"
+                  data-bs-parent="#menu"
+                >
+                <li class="w-100">
+                    <a href="http://127.0.0.1:8000/account/panel" class="nav-link px-0">
+                      <button class="btn sidebar-button">Panel</button>
+                    </a>
+                  </li>
+                  <li class="w-100">
+                    <a href="#" class="nav-link px-0">
+                      <button class="btn sidebar-button">Change Password</button>
+                    </a>
+                  </li>
+                  <li>
+                    <form action="http://127.0.0.1:8000/account/logout/" method="post" class="mt-2">
+                        {% csrf_token %}
+                      <button class="btn sidebar-button" type="submit">Log Out</button>
+                    </form>
+                  </li>
+                  <li>
+                    <form action="http://127.0.0.1:8000/account/delete-account/" method="post" class="mt-2">
+                        {% csrf_token %}
+                      <button class="btn sidebar-button" type="submit">Delete Account</button>
+                    </form>
+                  </li>
+                </ul>
+              </li>
+              
+            <hr />
+          </div>
+        </div>
+        <div class="col py-3">
+            <form class="resume-form d-flex flex-row flex-wrap gap-4 w-100 " action="http://127.0.0.1:8000/resume/edit_resume/{{access_id}}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="d-flex flex-column gap-1">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="tex-danger">{{ field.errors }}</div>
+                    {% endif %}
+                    </div>
+                {% endfor %}
+
+                <button class="btn" type="submit">Save Edits</button>
+            </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+    
+</body>
+</html>

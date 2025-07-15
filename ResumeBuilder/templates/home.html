@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Home {% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}
+
+    <div class="home-page">
+      <div class="hero-section container-fluid py-4">
+        <div class="row ps-3">
+          <div
+            class="hero-section-content col flex flex-column gap-2 justify-content-center align-items-center pt-3"
+          >
+            <h1>Create your resume with ease</h1>
+            <p>
+              Build professional resumes in minutes with our easy-to-use resume
+              building tool. The project is merely a Django training-show, not a
+              real service, but it can be used or customized to a real service.
+              The project is fully based on Django and Front-end based on
+              bootstrap 5 , scss. This project has a local SQLite database, but
+              it is possible to use a variety of MySQL, postgresql databases,
+              and it works exactly like a real site.
+            </p>
+            <button class="btn ">Build your resumes</button>
+          </div>
+
+          <div class="hero-section-image col">
+            <img
+              src="{% static 'images/hero-section.png' %}"
+              alt="Resume Builder"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="d-flex flex-column gap-2 justify-content-center align-items-center mt-4"
+        id="features"
+      >
+        <h2>Features</h2>
+        <h6>
+          <i class="fa-solid fa-check" style="color: #2678e9"></i> Easy-to-use
+          interface
+        </h6>
+        <h6>
+          <i class="fa-solid fa-check" style="color: #2678e9"></i> Download &&
+          Share resumes
+        </h6>
+        <h6>
+          <i class="fa-solid fa-check" style="color: #2678e9"></i> Edit resumes
+          anytime
+        </h6>
+        <h6>
+          <i class="fa-solid fa-check" style="color: #2678e9"></i> 5 Free
+          resumes
+        </h6>
+      </div>
+
+      <br />
+    </div>
+
+    {% endblock %}
+  </body>
+</html>

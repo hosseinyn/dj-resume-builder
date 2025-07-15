@@ -1,0 +1,46 @@
+@import "_colors.scss";
+
+header{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    // width: 74% !important;
+    border-radius: 10px;
+    // margin-top: 15px;
+    padding-top: 3px;
+    height: 65px;
+}
+
+nav{
+    margin-left: 30px;
+}
+
+.navbar-brand , .nav-link{
+    color: #2d2d2d !important;
+}
+
+
+nav .header-login{
+    background-color: $blue !important;
+    color: $white !important;
+    transition: 0.6s;
+    width: 120px;
+    height: 37px;
+}
+
+nav .header-login:hover{
+    background-color: $blue_hover !important;
+}
+
+nav .user-profile img{
+    height: 40px;
+    border-radius: 50%;
+}
+
+nav .user-profile{
+    text-decoration: none !important;
+    color: $blue !important;
+}
+
+// Footer
+footer{
+    background-color: $sky;
+}

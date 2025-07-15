@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.hero-section {
+  height: 340px;
+  background-color: #DCE9FF;
+  padding-top: 60px;
+}
+
+.hero-section img {
+  height: 300px;
+  border-radius: 16px;
+  margin-left: 220px !important;
+}
+
+.home-page button {
+  background-color: #2678E9 !important;
+  color: white !important;
+  transition: 0.6s;
+}
+.home-page button:hover {
+  background-color: #4A90E2 !important;
+}
+
+.sidebar-menu {
+  background-color: #DCE9FF;
+}/*# sourceMappingURL=index.css.map */

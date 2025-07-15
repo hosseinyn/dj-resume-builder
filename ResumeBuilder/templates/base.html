@@ -1,0 +1,85 @@
+{% load static %} {% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/auth_form.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/resume.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}" />
+    {% bootstrap_css %}
+    <title>{% block title %} {% endblock %} | Django Resume Builder</title>
+  </head>
+
+  <center>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Dj Resume Builder</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-center align-items-center"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav gap-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/"
+                  >Home <i class="fa-solid fa-home"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#features"
+                  >Features <i class="fa-solid fa-question"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"
+                  >About the project <i class="fa-solid fa-file"></i
+                ></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/hosseinyn"
+                  >Github <i class="fa-brands fa-square-github"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          {% if logedin %}
+            <a href="http://127.0.0.1:8000/account/panel" class="user-profile">
+              <span class="d-flex flex-row gap-1 align-items-center">
+                <p class="mb-0 text-black">Welcome <p class="text-primary mb-0">{{username}}</p></p>
+                <img class="user-profile" src="{% static 'images/user.png' %}" alt="{{username}}">
+              </span>
+            </a>
+          {% else %}
+            <a href="http://127.0.0.1:8000/account/login"
+              ><button class="btn header-login" type="button">Login</button></a
+            >
+          {% endif %}
+        </div>
+      </nav>
+    </header>
+  </center>
+
+  <body>
+    {% block content %} {% endblock %} {% bootstrap_javascript %}
+    <script src="{% static 'js/resume.js' %}"></script>
+    <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
+  </body>
+
+  <footer class="d-flex flex-column pt-3 align-items-center">
+    <h6>2025© <a href="https://github.com/hosseinyn">Hossein Yadegarnia</a></h6>
+  </footer>
+</html>

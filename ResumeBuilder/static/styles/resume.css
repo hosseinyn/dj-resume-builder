@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+* {
+  font-family: "Inter", sans-serif;
+}
+
+.hero-section {
+  height: 340px;
+  background-color: #DCE9FF;
+  padding-top: 60px;
+}
+
+.hero-section img {
+  height: 300px;
+  border-radius: 16px;
+  margin-left: 220px !important;
+}
+
+.home-page button {
+  background-color: #2678E9 !important;
+  color: white !important;
+  transition: 0.6s;
+}
+.home-page button:hover {
+  background-color: #4A90E2 !important;
+}
+
+.sidebar-menu {
+  background-color: #DCE9FF;
+}
+
+.resume-form .resume-input {
+  width: 325px;
+  height: 34px;
+  border-radius: 8px;
+  border: 0;
+  outline: none;
+  padding-left: 10px;
+  border: 1px solid #808080;
+}
+
+.resume-form textarea {
+  height: auto !important;
+  width: 900px !important;
+}
+
+.resume-form label {
+  align-self: flex-start;
+}
+
+.resume-form button {
+  background-color: #2678E9 !important;
+  color: white !important;
+  transition: 0.6s;
+  width: 95%;
+}
+.resume-form button:hover {
+  background-color: #4A90E2 !important;
+}
+
+.resumes .create-resume-btn {
+  background-color: #2678E9 !important;
+  color: white !important;
+  transition: 0.6s;
+  width: 40%;
+}
+.resumes .create-resume-btn:hover {
+  background-color: #4A90E2 !important;
+}/*# sourceMappingURL=resume.css.map */

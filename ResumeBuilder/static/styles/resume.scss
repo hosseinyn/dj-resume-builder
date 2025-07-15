@@ -1,0 +1,26 @@
+@import "_colors.scss";
+@import "index.scss";
+
+.resume-form .resume-input{
+    @include project-input;
+    border: 1px solid #808080;
+}
+
+.resume-form textarea{
+    height: auto !important;
+    width: 900px !important;
+}
+
+.resume-form label{
+    align-self: flex-start;
+}
+
+.resume-form button{
+    @include project-blue-button;
+    width: 95%;
+}
+
+.resumes .create-resume-btn{
+    @include project-blue-button;
+    width: 40%;
+}

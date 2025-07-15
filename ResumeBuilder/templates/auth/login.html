@@ -1,0 +1,49 @@
+{% load static %} {% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/auth_form.css' %}" />
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    {% bootstrap_css %}
+    <title>Login | Django resume builder</title>
+  </head>
+  <body>
+    <form
+      action="http://127.0.0.1:8000/account/login/"
+      method="post"
+      class="auth-form d-flex flex-column gap-2 align-items-center"
+    >
+      <h3>Resume Builder</h3>
+      <div
+        class="auth-form-inputs d-flex flex-column gap-2 align-items-center pt-3 w-100 h-100"
+      >
+        <h4>Login</h4>
+        {% csrf_token %}
+        <label for="username">{{form.username.label}}</label>
+        {{form.username}}
+
+        <label for="password">{{form.password.label}}</label>
+        <span class="d-flex flex-row gap-2 align-items-center" style="margin-left: 30px;">
+          {{form.password}}
+           <img src="{% static 'images/eye.png' %}" id="show-hide-button" style="cursor: pointer;" onclick="changeVisibility()" />
+        </span>
+
+        <button type="submit" class="btn mt-3">Log in</button>
+
+        {{form.errors}}
+
+        <div class="d-flex flex-row gap-2 mt-3">
+          <a href=""></a>
+          Don't have an account?
+          <a href="http://127.0.0.1:8000/account/signup">Sign Up</a>
+        </div>
+      </div>
+    </form>
+
+    {% bootstrap_javascript %}
+    <script src="{% static 'js/auth.js' %}"></script>
+    <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
+  </body>
+</html>
