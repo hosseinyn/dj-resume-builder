@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'app',
     'resume',
     'bootstrap5',
-    'django_sass',
 ]
 
 MIDDLEWARE = [

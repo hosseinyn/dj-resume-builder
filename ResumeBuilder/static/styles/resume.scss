@@ -24,3 +24,26 @@
     @include project-blue-button;
     width: 40%;
 }
+
+.resume-content{
+    border: 5px solid $blue_hover;
+    box-shadow: $blue_hover 0px 2px 8px 0px;
+    width: 500px;
+    min-height: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.resume-person-picture img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.resume-skills-content p{
+    width: 395px;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}

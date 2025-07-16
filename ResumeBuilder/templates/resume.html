@@ -1,18 +1,84 @@
 {% extends 'base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {{resume.full_name}} {% endblock %}</title>
-</head>
-<body>
 
-    {% block content %}
+<title>{% block title %} {{resume.full_name}} {% endblock %}</title>
 
-        
+{% block content %}
 
-    {% endblock %}
-    
-</body>
-</html>
+<br />
+
+<center>
+  <div
+    class="resume-content d-flex flex-column gap-3 mt-4 pt-4 align-items-center"
+  >
+    <div class="resume-person-info d-flex flex-row gap-2">
+      <div class="resume-person-picture">
+        <img
+          src="{{resume.profile_picture.url}}"
+          alt="{{resume.full_name}}"
+          class="mt-1"
+        />
+      </div>
+
+      <div
+        class="resume-person-info-text d-flex flex-column align-items-center"
+      >
+        <h2 class="mb-0">{{resume.full_name}}</h2>
+
+        <p class="mb-0">{{resume.birthday}}</p>
+
+        {% if resume.email %}
+        <p class="mb-0">{{resume.email}}</p>
+        {% else %}
+        <p>No Email</p>
+        {% endif %} {% if resume.phone %}
+        <p class="mb-0">{{resume.phone}}</p>
+        {% else %}
+        <p>No Phone Number</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="education d-flex flex-column gap-1">
+      <h3>Education</h3>
+      {% if resume.school %}
+      <h6>School : {{resume.school}}</h6>
+      {% else %}
+      <h6>No School Entred.</h6>
+      {% endif %} {% if resume.degree %}
+      <h6>Degree : {{resume.degree}}</h6>
+      {% else %}
+      <h6>No Degree Entred.</h6>
+      {% endif %}
+    </div>
+
+    <div class="experience d-flex flex-column gap-1">
+      <h3>Experience</h3>
+
+      <h6>Job Title : {{resume.job_title}}</h6>
+
+      {% if resume.company %}
+      <p class="mb-0 ms-2">Company : {{resume.company}}</p>
+      {% else %}
+      <p class="mb-0 ms-2">No Company</p>
+      {% endif %} {% if resume.job_start_date %}
+      <p class="mb-0 ms-2">Job Start Date : {{resume.job_start_date}}</p>
+      {% else %}
+      <p class="mb-0 ms-2">No Job Start Date</p>
+      {% endif %} {% if resume.job_end_date %}
+      <p class="ms-2">Job End Date : {{resume.job_end_date}}</p>
+      {% else %}
+      <p class="ms-2">No Job End Date</p>
+      {% endif %}
+    </div>
+
+    <div class="resume-skills-content d-flex flex-column gap-2">
+      <h3>Skills && Summary</h3>
+
+      <p>- {{resume.skills}}</p>
+    </div>
+  </div>
+</center>
+
+<br />
+
+{% endblock %}

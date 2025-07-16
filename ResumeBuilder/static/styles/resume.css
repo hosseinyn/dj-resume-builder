@@ -65,4 +65,27 @@
 }
 .resumes .create-resume-btn:hover {
   background-color: #4A90E2 !important;
+}
+
+.resume-content {
+  border: 5px solid #4A90E2;
+  box-shadow: #4A90E2 0px 2px 8px 0px;
+  width: 500px;
+  min-height: 600px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.resume-person-picture img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.resume-skills-content p {
+  width: 395px;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }/*# sourceMappingURL=resume.css.map */
