@@ -32,7 +32,7 @@
                     </a>
                   </li>
                   <li class="w-100">
-                    <a href="#" class="nav-link px-0">
+                    <a href="http://127.0.0.1:8000/account/change-password/" class="nav-link px-0">
                       <button class="btn sidebar-button">Change Password</button>
                     </a>
                   </li>
@@ -57,6 +57,7 @@
         <div class="col py-3">
             <form class="resume-form d-flex flex-row flex-wrap gap-4 w-100 " action="http://127.0.0.1:8000/resume/create_resume/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
+                
                 {% for field in form %}
                     <div class="d-flex flex-column gap-1">
                     {{ field.label_tag }}
@@ -66,6 +67,19 @@
                     {% endif %}
                     </div>
                 {% endfor %}
+
+                {% if form.errors %}
+                  <ul class="mt-2">
+                  {% for field in form %}
+                    {% for error in field.errors %}
+                      <li class="text-danger">{{ error }}</li>
+                    {% endfor %}
+                  {% endfor %}
+                  {% for error in form.non_field_errors %}
+                    <li class="text-danger">{{ error }}</li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
 
                 <button class="btn" type="submit">Create Your Resume</button>
             </form>

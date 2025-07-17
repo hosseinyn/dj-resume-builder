@@ -24,7 +24,6 @@
         <label for="username">{{form.username.label}}</label>
         {{form.username}}
 
-        {{form.username.errors}}
 
         <label for="password1">{{form.password1.label}}</label>
         <span class="d-flex flex-row gap-2 align-items-center" style="margin-left: 30px;">
@@ -32,12 +31,21 @@
            <img src="{% static 'images/eye.png' %}" id="show-hide-button" style="cursor: pointer;" onclick="changeVisibility()" />
         </span>
 
-        {{form.password1.errors}}
-
         <label for="password2">{{form.password2.label}}</label>
         {{form.password2}}
 
-        {{form.password2.errors}}
+        {% if form.errors %}
+            <ul class="mt-2 ms-4">
+            {% for field in form %}
+              {% for error in field.errors %}
+                <li class="text-danger">{{ error }}</li>
+              {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+              <li class="text-danger">{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
 
         <button type="submit" class="btn mt-3">Sign Up</button>
 

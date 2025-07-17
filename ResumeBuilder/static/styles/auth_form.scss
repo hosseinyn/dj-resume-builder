@@ -10,7 +10,8 @@ body{
     width: 410px;
     border-radius: 10px;
     padding-top: 20px;
-    height: 445px;
+    min-height: 445px;
+    height: auto;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -18,7 +19,7 @@ body{
 }
 
 .auth-signup-form{
-    height: 490px;
+    min-height: 490px;
 }
 
 .auth-form-inputs{
@@ -76,4 +77,12 @@ a{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     border: 0;
     border-radius: 10px;
+}
+
+.change-password-form input{
+    @include project-input;
+}
+
+.change-password-form button{
+    @include project-blue-button;
 }

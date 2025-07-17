@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Resume
 from .forms import CreateResume
 
-from time import sleep
-
 # Create your views here.
 @login_required
 def create_resume(request):
@@ -36,7 +34,10 @@ def create_resume(request):
             # form.save()
             return redirect("/account/panel")
         else:
-            return redirect("/")
+            logedin = request.user.is_authenticated
+            username = request.user.username
+
+            return render(request , "create_resume.html" , {"logedin" : logedin , "username" : username , "form" : form})
         
 
 @login_required
@@ -83,7 +84,10 @@ def edit_resume(request , access_id):
                 return redirect("/account/panel")
             
             else:
-                return redirect("/account/panel")
+                logedin = request.user.is_authenticated
+                username = request.user.username
+
+                return render(request , "edit_resume.html" , {"logedin" : logedin , "username" : username , "form" : form , "access_id" : access_id})
     else:
         return redirect("/account/login")
     

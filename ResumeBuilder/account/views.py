@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 
-from .forms import LoginForm , SignUpForm
+from .forms import LoginForm , SignUpForm , ChangePasswordForm
 from django.contrib.auth import login as login_user
 from django.contrib.auth import logout as logout_user
 from django.contrib.auth.decorators import login_required
@@ -24,7 +24,7 @@ def login(request):
             login_user(request , user)
             return redirect("/")
         else:
-            print(f"ERRRRRRROR : {form.errors}")
+            return render(request , "auth/login.html" , {"form" : form})
 
 def signup(request):
     if request.user.is_authenticated:
@@ -39,7 +39,8 @@ def signup(request):
         if form.is_valid():
             form.save()
             return redirect("/account/login/")
-        
+        else:
+            return render(request , "auth/signup.html" , {"form" : form})
 
 @login_required
 def panel(request):
@@ -65,3 +66,25 @@ def delete_account(request):
         return redirect("/")
     else:
         return redirect("/account/panel")
+    
+@login_required
+def change_password(request):
+    if request.method == "GET":
+        form = ChangePasswordForm(user=request.user)
+
+        logedin = request.user.is_authenticated
+        username = request.user.username
+
+        return render(request , "auth/change_password.html" , {"logedin" : logedin , "username" : username , "form" : form})
+    
+    elif request.method == "POST":
+        form = ChangePasswordForm(user=request.user , data=request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+        else:
+            logedin = request.user.is_authenticated
+            username = request.user.username
+
+            return render(request , "auth/change_password.html" , {"logedin" : logedin , "username" : username , "form" : form})
