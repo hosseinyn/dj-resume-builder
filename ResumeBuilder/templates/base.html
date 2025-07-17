@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
     <link rel="stylesheet" href="{% static 'styles/auth_form.css' %}">
     <link rel="stylesheet" href="{% static 'styles/resume.css' %}">
+    <link rel="stylesheet" href="{% static 'sweetalert/sweetalert2.css' %}">
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}" />
     {% bootstrap_css %}
     <title>{% block title %} {% endblock %} | Django Resume Builder</title>
@@ -75,6 +76,7 @@
 
   <body>
     {% block content %} {% endblock %} {% bootstrap_javascript %}
+    <script src="{% static 'sweetalert/sweetalert2.all.min.js' %}"></script>
     <script src="{% static 'js/resume.js' %}"></script>
     <script src="{% static 'fontawesome/js/all.min.js' %}"></script>
   </body>

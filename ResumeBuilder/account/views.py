@@ -49,7 +49,9 @@ def panel(request):
 
     resumes = Resume.objects.filter(user=request.user)
 
-    return render(request , "auth/panel.html" , {"logedin" : logedin , "username" : username , "resumes" : resumes})
+    resumes_count = len(resumes)
+
+    return render(request , "auth/panel.html" , {"logedin" : logedin , "username" : username , "resumes" : resumes , "resumes_count" : resumes_count})
 
 @login_required
 def logout(request):

@@ -42,11 +42,12 @@ def create_resume(request):
 
 @login_required
 def delete_resume(request , access_id):
-    if get_object_or_404(Resume , access_id=access_id).user == request.user:
-        Resume.objects.get(access_id=access_id).delete()
-        return redirect("/account/panel")
-    else:
-        return redirect("/account/login")
+    if request.method == "POST":
+        if get_object_or_404(Resume , access_id=access_id).user == request.user:
+            Resume.objects.get(access_id=access_id).delete()
+            return redirect("/account/panel")
+        else:
+            return redirect("/account/login")
 
 @login_required
 def edit_resume(request , access_id):

@@ -7,7 +7,7 @@ import uuid
 # Create your models here.
 class Resume(models.Model):
     id = models.IntegerField(primary_key=True)
-    access_id = models.SlugField(null=False , blank=False , default=uuid.uuid4())
+    access_id = models.SlugField(null=False , blank=False , default=uuid.uuid4 , unique=True)
     created_at = models.DateField(null=False , auto_now=True)
     profile_picture = models.ImageField()
     user = models.ForeignKey(User , related_name="user" , on_delete=models.CASCADE)
