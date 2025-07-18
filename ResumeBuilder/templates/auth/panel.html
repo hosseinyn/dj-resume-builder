@@ -43,7 +43,8 @@
                   <li>
                     <form action="http://127.0.0.1:8000/account/delete-account/" method="post" class="mt-2">
                         {% csrf_token %}
-                      <button class="btn sidebar-button" type="submit">Delete Account</button>
+                      <button class="btn sidebar-button" type="button" onclick="deleteAccount()">Delete Account</button>
+                      <button type="submit" id="delete_account_button" style="display: none;"></button>
                     </form>
                   </li>
                 </ul>

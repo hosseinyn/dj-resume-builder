@@ -45,7 +45,8 @@
                   <li>
                     <form action="http://127.0.0.1:8000/account/delete-account/" method="post" class="mt-2">
                         {% csrf_token %}
-                      <button class="btn sidebar-button" type="submit">Delete Account</button>
+                      <button class="btn sidebar-button" type="button" onclick="deleteAccount()">Delete Account</button>
+                      <button type="submit" id="delete_account_button" style="display: none;"></button>
                     </form>
                   </li>
                 </ul>
@@ -55,7 +56,7 @@
           </div>
         </div>
         <div class="col py-3">
-            <form class="resume-form d-flex flex-row flex-wrap gap-4 w-100 " action="http://127.0.0.1:8000/resume/edit_resume/{{access_id}}" method="post" enctype="multipart/form-data">
+            <form class="resume-form d-flex flex-wrap gap-4 w-100" style="flex-direction: row;" action="http://127.0.0.1:8000/resume/edit_resume/{{access_id}}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
                     <div class="d-flex flex-column gap-1">

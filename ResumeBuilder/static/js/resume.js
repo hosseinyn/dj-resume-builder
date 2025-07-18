@@ -29,12 +29,27 @@ const deleteResume = (e) => {
         confirmButtonText: "Yes, delete my resume"
         }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire({
-            title: "Deleted!",
-            text: "Your resume has been deleted.",
-            icon: "success"
-            });
             delete_resume_button.click()
+        }
+    });
+
+}
+
+// Delete account function
+const delete_account_button = document.getElementById("delete_account_button");
+
+const deleteAccount = (e) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete my account"
+        }).then((result) => {
+        if (result.isConfirmed) {
+            delete_account_button.click()
         }
     });
 

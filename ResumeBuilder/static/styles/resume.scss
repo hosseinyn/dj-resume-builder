@@ -7,8 +7,9 @@
 }
 
 .resume-form textarea{
+    @include project-input;
     height: auto !important;
-    width: 900px !important;
+    width: 900px;
 }
 
 .resume-form label{

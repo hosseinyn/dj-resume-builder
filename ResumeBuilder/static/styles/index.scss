@@ -1,5 +1,9 @@
 @import '_colors.scss';
 
+body , html{
+    overflow-x: hidden;
+}
+
 @mixin project-input{
     width: 325px;
     height: 34px;

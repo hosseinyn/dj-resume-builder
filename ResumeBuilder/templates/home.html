@@ -5,10 +5,9 @@
     {% block content %}
 
     <div class="home-page">
-      <div class="hero-section container-fluid py-4">
-        <div class="row ps-3">
+      <div class="hero-section d-flex flex-row py-4">
           <div
-            class="hero-section-content col flex flex-column gap-2 justify-content-center align-items-center pt-3"
+            class="hero-section-content ms-3 flex flex-column gap-2 justify-content-center align-items-center pt-3"
           >
             <h1>Create your resume with ease</h1>
             <p>
@@ -23,13 +22,12 @@
             <button class="btn ">Build your resumes</button>
           </div>
 
-          <div class="hero-section-image col">
+          <div class="hero-section-image me-5">
             <img
               src="{% static 'images/hero-section.png' %}"
               alt="Resume Builder"
             />
           </div>
-        </div>
       </div>
 
       <div

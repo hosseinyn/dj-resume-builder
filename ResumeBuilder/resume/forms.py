@@ -17,7 +17,7 @@ class CreateResume(forms.ModelForm):
         job_start_date = forms.DateField(required=False , widget=forms.DateInput(attrs={"class" : "resume-input" , "type" : "date"}) , label="Job Start Date ")
         job_end_date = forms.DateField(required=False , widget=forms.DateInput(attrs={"class" : "resume-input" , "type" : "date"}) , label="Job End Date ")
 
-        skills = forms.CharField(required=True , max_length=400 , min_length=20 , widget=forms.Textarea(attrs={"class" : "resume-input"}) , label="Your Skills ")
+        skills = forms.CharField(required=True , max_length=400 , min_length=20 , widget=forms.Textarea(attrs={"wrap" : "hard"}) , label="Your Skills ")
 
         class Meta:
             model = Resume

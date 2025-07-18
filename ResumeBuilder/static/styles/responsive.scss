@@ -1,0 +1,60 @@
+@media only screen and (max-width: 767px) {
+  .hero-section-image img{
+    visibility: hidden;
+  }
+
+  .hero-section-content p{
+    width: 470px;
+  }
+
+  input{
+    width: 225px !important;
+  }
+
+  .resume-form{
+    flex-direction: column !important;
+  }
+
+  h1 , h2 , h3 , h4 , h5 , h6{
+    white-space: nowrap;
+  }
+
+  button{
+    white-space: nowrap;
+  }
+
+  .create-resume-btn{
+    width: 200px !important;
+  }
+
+  .sidebar-button{
+    width: 210px;
+  }
+
+  button[type="submit"]{
+    width: 210px !important;
+  }
+
+  .resume{
+    width: 200px;
+  }
+
+  .resume h5{
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+  }
+
+  textarea {
+    width: 230px !important;
+  }
+
+  .helptext ul li{
+    max-width: 220px;
+  }
+
+  .helptext ul{
+    padding-left: 6px !important;
+  }
+
+}
