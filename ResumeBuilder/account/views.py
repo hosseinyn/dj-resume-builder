@@ -11,7 +11,7 @@ from resume.models import Resume
 # Create your views here.
 def login(request):
     if request.user.is_authenticated:
-        return redirect("/")
+        return redirect("/account/panel")
 
     if request.method == "GET":
         form = LoginForm()
@@ -28,7 +28,7 @@ def login(request):
 
 def signup(request):
     if request.user.is_authenticated:
-        return redirect("/")
+        return redirect("/account/panel")
     
     if request.method == "GET":
         form = SignUpForm()

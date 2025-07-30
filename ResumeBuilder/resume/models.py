@@ -14,7 +14,7 @@ class Resume(models.Model):
     full_name = models.CharField(null=False , blank=False , max_length=25 , validators=[MinLengthValidator(5)])
     birthday = models.DateField()
     email = models.EmailField(null=True , blank=True)
-    phone = models.CharField(null=True , blank=True , max_length=12 , validators=[MinLengthValidator(12)])
+    phone = models.CharField(null=True , blank=True , max_length=14 , validators=[MinLengthValidator(10)])
     skills = models.TextField(null=False , blank=False , max_length=400 , validators=[MinLengthValidator(20)])
 
     school = models.CharField(null=True , blank=True , max_length=30 , validators=[MinLengthValidator(5)])
