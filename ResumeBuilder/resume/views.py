@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Resume
 from .forms import CreateResume
 
+import os
+
 # Create your views here.
 @login_required
 def create_resume(request):
@@ -12,7 +14,7 @@ def create_resume(request):
         logedin = request.user.is_authenticated
         username = request.user.username
         form = CreateResume()
-        return render(request , "create_resume.html" , {"logedin" : logedin , "username" : username , "form" : form})
+        return render(request , "create_resume.html" , {"logedin" : logedin , "username" : username , "form" : form , "url" : os.environ.get("URL")})
     
     elif request.method == "POST":
         form = CreateResume(request.POST , request.FILES)
@@ -37,7 +39,7 @@ def create_resume(request):
             logedin = request.user.is_authenticated
             username = request.user.username
 
-            return render(request , "create_resume.html" , {"logedin" : logedin , "username" : username , "form" : form})
+            return render(request , "create_resume.html" , {"logedin" : logedin , "username" : username , "form" : form , "url" : os.environ.get("URL")})
         
 
 @login_required
@@ -59,7 +61,7 @@ def edit_resume(request , access_id):
             logedin = request.user.is_authenticated
             username = request.user.username
 
-            return render(request , "edit_resume.html" , {"logedin" : logedin , "username" : username , "form" : form , "access_id" : access_id})
+            return render(request , "edit_resume.html" , {"logedin" : logedin , "username" : username , "form" : form , "access_id" : access_id , "url" : os.environ.get("URL")})
         
         elif request.method == "POST":
             form = CreateResume(request.POST , request.FILES , instance=user_resume)
@@ -88,7 +90,7 @@ def edit_resume(request , access_id):
                 logedin = request.user.is_authenticated
                 username = request.user.username
 
-                return render(request , "edit_resume.html" , {"logedin" : logedin , "username" : username , "form" : form , "access_id" : access_id})
+                return render(request , "edit_resume.html" , {"logedin" : logedin , "username" : username , "form" : form , "access_id" : access_id , "url" : os.environ.get("URL")})
     else:
         return redirect("/account/login")
     
@@ -99,4 +101,4 @@ def resume(request , access_id):
     logedin = request.user.is_authenticated
     username = request.user.username
 
-    return render(request , "resume.html" , {"logedin" : logedin , "username" : username , "resume" : target_resume})
+    return render(request , "resume.html" , {"logedin" : logedin , "username" : username , "resume" : target_resume , "url" : os.environ.get("URL")})

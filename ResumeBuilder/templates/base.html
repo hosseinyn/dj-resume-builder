@@ -59,14 +59,14 @@
             </ul>
           </div>
           {% if logedin %}
-            <a href="http://127.0.0.1:8000/account/panel" class="user-profile">
+            <a href="{{url}}/account/panel" class="user-profile">
               <span class="d-flex flex-row gap-1 align-items-center">
                 <p class="mb-0 text-black">Welcome <p class="text-primary mb-0">{{username}}</p></p>
                 <img class="user-profile" src="{% static 'images/user.png' %}" alt="{{username}}">
               </span>
             </a>
           {% else %}
-            <a href="http://127.0.0.1:8000/account/login"
+            <a href="{{url}}/account/login"
               ><button class="btn header-login" type="button">Login</button></a
             >
           {% endif %}

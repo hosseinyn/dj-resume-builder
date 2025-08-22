@@ -27,23 +27,23 @@
                   data-bs-parent="#menu"
                 >
                 <li class="w-100">
-                    <a href="http://127.0.0.1:8000/account/panel" class="nav-link px-0">
+                    <a href="{{url}}/account/panel" class="nav-link px-0">
                       <button class="btn sidebar-button">Panel</button>
                     </a>
                   </li>
                   <li class="w-100">
-                    <a href="http://127.0.0.1:8000/account/change-password/" class="nav-link px-0">
+                    <a href="{{url}}/account/change-password/" class="nav-link px-0">
                       <button class="btn sidebar-button">Change Password</button>
                     </a>
                   </li>
                   <li>
-                    <form action="http://127.0.0.1:8000/account/logout/" method="post" class="mt-2">
+                    <form action="{{url}}/account/logout/" method="post" class="mt-2">
                         {% csrf_token %}
                       <button class="btn sidebar-button" type="submit">Log Out</button>
                     </form>
                   </li>
                   <li>
-                    <form action="http://127.0.0.1:8000/account/delete-account/" method="post" class="mt-2">
+                    <form action="{{url}}/account/delete-account/" method="post" class="mt-2">
                         {% csrf_token %}
                       <button class="btn sidebar-button" type="button" onclick="deleteAccount()">Delete Account</button>
                       <button type="submit" id="delete_account_button" style="display: none;"></button>
@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="col py-3">
-            <form class="resume-form d-flex flex-wrap gap-4 w-100" style="flex-direction: row;" action="http://127.0.0.1:8000/resume/edit_resume/{{access_id}}" method="post" enctype="multipart/form-data">
+            <form class="resume-form d-flex flex-wrap gap-4 w-100" style="flex-direction: row;" action="{{url}}/resume/edit_resume/{{access_id}}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% for field in form %}
                     <div class="d-flex flex-column gap-1">

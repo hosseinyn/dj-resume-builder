@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 
 from resume.models import Resume
 
+import os
+
 # Create your views here.
 def login(request):
     if request.user.is_authenticated:
@@ -15,7 +17,7 @@ def login(request):
 
     if request.method == "GET":
         form = LoginForm()
-        return render(request , "auth/login.html" , {"form" : form})
+        return render(request , "auth/login.html" , {"form" : form , "url" : os.environ.get("URL")})
     
     elif request.method == "POST":
         form = LoginForm(request=request , data=request.POST)
@@ -24,7 +26,7 @@ def login(request):
             login_user(request , user)
             return redirect("/")
         else:
-            return render(request , "auth/login.html" , {"form" : form})
+            return render(request , "auth/login.html" , {"form" : form , "url" : os.environ.get("URL")})
 
 def signup(request):
     if request.user.is_authenticated:
@@ -32,7 +34,7 @@ def signup(request):
     
     if request.method == "GET":
         form = SignUpForm()
-        return render(request , "auth/signup.html" , {"form" : form})
+        return render(request , "auth/signup.html" , {"form" : form , "url" : os.environ.get("URL")})
     
     elif request.method == "POST":
         form = SignUpForm(request.POST)
@@ -40,7 +42,7 @@ def signup(request):
             form.save()
             return redirect("/account/login/")
         else:
-            return render(request , "auth/signup.html" , {"form" : form})
+            return render(request , "auth/signup.html" , {"form" : form , "url" : os.environ.get("URL")})
 
 @login_required
 def panel(request):
@@ -51,7 +53,7 @@ def panel(request):
 
     resumes_count = len(resumes)
 
-    return render(request , "auth/panel.html" , {"logedin" : logedin , "username" : username , "resumes" : resumes , "resumes_count" : resumes_count})
+    return render(request , "auth/panel.html" , {"logedin" : logedin , "username" : username , "resumes" : resumes , "resumes_count" : resumes_count , "url" : os.environ.get("URL")})
 
 @login_required
 def logout(request):
@@ -77,7 +79,7 @@ def change_password(request):
         logedin = request.user.is_authenticated
         username = request.user.username
 
-        return render(request , "auth/change_password.html" , {"logedin" : logedin , "username" : username , "form" : form})
+        return render(request , "auth/change_password.html" , {"logedin" : logedin , "username" : username , "form" : form , "url" : os.environ.get("URL")})
     
     elif request.method == "POST":
         form = ChangePasswordForm(user=request.user , data=request.POST)
@@ -89,4 +91,4 @@ def change_password(request):
             logedin = request.user.is_authenticated
             username = request.user.username
 
-            return render(request , "auth/change_password.html" , {"logedin" : logedin , "username" : username , "form" : form})
+            return render(request , "auth/change_password.html" , {"logedin" : logedin , "username" : username , "form" : form , "url" : os.environ.get("URL")})

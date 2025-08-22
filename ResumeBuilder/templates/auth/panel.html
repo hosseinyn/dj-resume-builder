@@ -30,18 +30,18 @@
                     </a>
                   </li>
                   <li class="w-100">
-                    <a href="http://127.0.0.1:8000/account/change-password/" class="nav-link px-0">
+                    <a href="{{url}}/account/change-password/" class="nav-link px-0">
                       <button class="btn sidebar-button">Change Password</button>
                     </a>
                   </li>
                   <li>
-                    <form action="http://127.0.0.1:8000/account/logout/" method="post" class="mt-2">
+                    <form action="{{url}}/account/logout/" method="post" class="mt-2">
                         {% csrf_token %}
                       <button class="btn sidebar-button" type="submit">Log Out</button>
                     </form>
                   </li>
                   <li>
-                    <form action="http://127.0.0.1:8000/account/delete-account/" method="post" class="mt-2">
+                    <form action="{{url}}/account/delete-account/" method="post" class="mt-2">
                         {% csrf_token %}
                       <button class="btn sidebar-button" type="button" onclick="deleteAccount()">Delete Account</button>
                       <button type="submit" id="delete_account_button" style="display: none;"></button>
@@ -59,17 +59,17 @@
             <div class="resumes d-flex flex-column gap-4 mt-4 ms-3">
                 {% for resume in resumes.all %}
                     <div class="resume d-flex flex-column gap-1 align-items-center pt-2">
-                        <a href="http://127.0.0.1:8000/resume/access/{{resume.access_id}}"><h5>{{resume.full_name}} | {{resume.job_title}}</h5></a>
+                        <a href="{{url}}/resume/access/{{resume.access_id}}"><h5>{{resume.full_name}} | {{resume.job_title}}</h5></a>
                         <p>{{resume.created_at}}</p>
                         <span class="d-flex flex-row gap-3">
-                          <form action="http://127.0.0.1:8000/resume/delete_resume/{{resume.access_id}}" method="post">
+                          <form action="{{url}}/resume/delete_resume/{{resume.access_id}}" method="post">
                             {% csrf_token %}
                             <button class="btn btn-danger btn-sm" type="button" onclick="deleteResume()">
                                 <i class="fa-solid fa-trash-can h-10" style="color: #fff;"></i>
                             </button>
                             <button type="submit" id="delete_resume_button" style="display: none;"></button>
                           </form>
-                            <a href="http://127.0.0.1:8000/resume/edit_resume/{{resume.access_id}}"><button class="btn btn-primary btn-sm">
+                            <a href="{{url}}/resume/edit_resume/{{resume.access_id}}"><button class="btn btn-primary btn-sm">
                                 <i class="fa-solid fa-pencil" style="color: #fff;"></i>
                             </button></a>
                             <button class="btn btn-success btn-sm" data-title="{{resume.full_name}} | {{resume.job_title}}" data-name="{{resume.full_name}}" data-access="{{resume.access_id}}" onclick="shareResume(this)">
@@ -80,9 +80,9 @@
                 {% endfor %}
                 
                 {% if resumes_count < 5 %}
-                  <a href="http://127.0.0.1:8000/resume/create_resume"><button class="btn create-resume-btn">Create Resume</button></a>
+                  <a href="{{url}}/resume/create_resume"><button class="btn create-resume-btn">Create Resume</button></a>
                 {% else %}
-                    <a href="http://127.0.0.1:8000/resume/create_resume"><button class="btn create-resume-btn disabled">Create Resume</button></a>
+                    <a href="{{url}}/resume/create_resume"><button class="btn create-resume-btn disabled">Create Resume</button></a>
                 {% endif %}
             </div>
 
