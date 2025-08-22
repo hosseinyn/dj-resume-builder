@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="col py-3">
-            <form class="resume-form d-flex flex-row flex-wrap gap-4 w-100 " action="{{url}}/create_resume/" method="post" enctype="multipart/form-data">
+            <form class="resume-form d-flex flex-row flex-wrap gap-4 w-100 " action="{{url}}/resume/create_resume/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 
                 {% for field in form %}
